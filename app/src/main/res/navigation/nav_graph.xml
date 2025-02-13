@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_code_editor">
+
+    <fragment
+        android:id="@+id/nav_code_editor"
+        android:name="com.nguyenmoclam.kotlinsandboxexec.ui.CodeEditorFragment"
+        android:label="Code Editor" />
+
+    <fragment
+        android:id="@+id/nav_chat"
+        android:name="com.nguyenmoclam.kotlinsandboxexec.ui.ChatFragment"
+        android:label="Chat" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.nguyenmoclam.kotlinsandboxexec.ui.SettingsFragment"
+        android:label="Settings" />
+</navigation>

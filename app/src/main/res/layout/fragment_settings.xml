@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/execution_timeout"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/timeoutSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:max="30" />
+
+        <TextView
+            android:id="@+id/timeoutValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="?attr/textAppearanceCaption" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/memory_limit"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/memorySeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:max="80"
+            android:progress="50" />
+
+        <TextView
+            android:id="@+id/memoryValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="?attr/textAppearanceCaption" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/hapticSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/haptic_feedback"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/soundSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/sound_feedback"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/customKeyboardSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/custom_keyboard"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/autoIndentSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/auto_indent"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/history_size"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/historySeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:max="50"
+            android:progress="10" />
+
+        <TextView
+            android:id="@+id/historyValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="?attr/textAppearanceCaption" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/font_size"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/fontSizeSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:max="24"
+            android:min="8"
+            android:progress="14" />
+
+        <TextView
+            android:id="@+id/fontSizeValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="?attr/textAppearanceCaption" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/font_family"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/fontFamilySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/bracketCompletionSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/bracket_completion"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/syntaxHighlightSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/syntax_highlight"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/darkModeSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/dark_mode"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/cancelButton"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/cancel" />
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save_settings" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
