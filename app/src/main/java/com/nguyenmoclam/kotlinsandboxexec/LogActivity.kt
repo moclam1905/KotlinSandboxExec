@@ -19,11 +19,6 @@ class LogActivity : AppCompatActivity() {
         binding = ActivityLogBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Setup toolbar
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = getString(R.string.title_execution_log)
-
         // Get code from intent or saved state
         currentCode = savedInstanceState?.getString("current_code") ?: intent.getStringExtra(
             EXTRA_CODE

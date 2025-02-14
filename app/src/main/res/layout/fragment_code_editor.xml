@@ -21,8 +21,11 @@
             android:id="@+id/codeEditor"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             app:lnPanelPosition="center"
             app:lnPanelPositionMode="follow" />
+
     </LinearLayout>
 
     <!-- Container chứa custom keyboard (CodeKeyboardView) -->

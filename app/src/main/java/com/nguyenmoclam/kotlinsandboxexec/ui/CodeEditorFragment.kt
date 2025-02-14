@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.nguyenmoclam.kotlinsandboxexec.CodeKeyboardView
@@ -131,14 +132,16 @@ class CodeEditorFragment : Fragment() {
                             format = android.graphics.PixelFormat.TRANSLUCENT
                             gravity = android.view.Gravity.BOTTOM
                             token = activity.window.decorView.windowToken
-                            softInputMode = android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE or android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
+                            softInputMode = android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE
                         }
                         windowManager.addView(keyboardView, layoutParams)
 
                         // Set up keyboard visibility listener
                         binding.codeEditor.setOnClickListener {
-                            val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
-                            imm.showSoftInput(binding.codeEditor, android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT)
+                            if (binding.codeEditor.requestFocus()) {
+                                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                                imm.showSoftInput(binding.codeEditor, InputMethodManager.SHOW_IMPLICIT)
+                            }
                             keyboardView.visibility = View.VISIBLE
                         }
 
@@ -376,7 +379,9 @@ class CodeEditorFragment : Fragment() {
 
     companion object {
         private const val DEFAULT_CODE = """// Write your Kotlin code here
-println("Hello, Kotlin Sandbox!")"""
+fun main() {
+    println("Hello, Kotlin Sandbox!")
+}"""
 
         fun newInstance() = CodeEditorFragment()
     }
