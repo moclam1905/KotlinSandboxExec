@@ -19,3 +19,9 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Giữ tất cả class của org.jetbrains.kotlin.cli... (và có thể org.jetbrains.kotlin.utils...)
+-keep class org.jetbrains.kotlin.cli.** { *; }
+-keep class org.jetbrains.kotlin.utils.** { *; }
+-keep class org.jetbrains.kotlin.config.** { *; }
+# v.v. tuỳ vào package mà compiler dùng

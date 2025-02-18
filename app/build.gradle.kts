@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")
+    //id("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
 }
 
@@ -41,14 +41,19 @@ android {
     }
     packaging {
         resources {
-            excludes += listOf(
-                "kotlin/coroutines/coroutines.kotlin_builtins",
-                "kotlin/kotlin.kotlin_builtins",
-                "kotlin/reflect/reflect.kotlin_builtins",
-                "kotlin/collections/collections.kotlin_builtins",
-                "kotlin/annotation/annotation.kotlin_builtins",
-                "kotlin/internal/internal.kotlin_builtins",
-                "kotlin/ranges/ranges.kotlin_builtins"
+//            pickFirsts += listOf(
+//                "kotlin/coroutines/coroutines.kotlin_builtins",
+//                "kotlin/kotlin.kotlin_builtins",
+//                "kotlin/reflect/reflect.kotlin_builtins",
+//                "kotlin/collections/collections.kotlin_builtins",
+//                "kotlin/annotation/annotation.kotlin_builtins",
+//                "kotlin/internal/internal.kotlin_builtins",
+//                "kotlin/ranges/ranges.kotlin_builtins"
+//            )
+            pickFirsts += listOf(
+                "*/*.kotlin_builtins",
+                "*/*/*.kotlin_builtins",
+                "*/*/*/*.kotlin_builtins"
             )
         }
     }
@@ -57,7 +62,7 @@ android {
 
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
-// Android Core
+    // Android Core
     implementation("androidx.core:core-ktx:1.8.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
@@ -69,24 +74,36 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
     implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
 
-    // Kotlin compiler for code execution
-    implementation("org.jetbrains.kotlin:kotlin-compiler-embeddable:1.9.24")
-    implementation("org.jetbrains.kotlin:kotlin-script-runtime:1.9.24")
-    //implementation("org.jetbrains.kotlin:kotlin-scripting-common:1.8.0")
-    //implementation("org.jetbrains.kotlin:kotlin-scripting-jvm:1.8.0")
-    //implementation("org.jetbrains.kotlin:kotlin-scripting-jvm-host:1.8.0")
-    implementation("org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:1.9.24")
-    implementation("org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:1.9.24")
-    //implementation("org.jetbrains.kotlin:kotlin-scripting-jsr223:1.8.0")
-    //implementation("org.jetbrains.kotlin:kotlin-scripting-dependencies:1.8.0")
-    //implementation("org.jetbrains.kotlin:kotlin-scripting-dependencies-maven:1.8.0")
+//    // Kotlin Scripting Dependencies
+//    implementation("org.jetbrains.kotlin:kotlin-scripting-common:1.9.24")
+//    implementation("org.jetbrains.kotlin:kotlin-scripting-jvm:1.9.24")
+//    implementation("org.jetbrains.kotlin:kotlin-scripting-jvm-host:1.9.24")
+//    implementation("org.jetbrains.kotlin:kotlin-scripting-dependencies:1.9.24")
+//    implementation("org.jetbrains.kotlin:kotlin-script-runtime:1.9.24")
+//    implementation("org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:1.9.24")
+//    implementation("org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:1.9.24")
 
+// Kotlin stdlib
+    //implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.24")
+
+    // Kotlin scripting core
+//    implementation("org.jetbrains.kotlin:kotlin-script-runtime:1.9.24")
+//    implementation("org.jetbrains.kotlin:kotlin-scripting-common:1.9.24")
+//    implementation("org.jetbrains.kotlin:kotlin-scripting-jvm:1.9.24")
+//    implementation("org.jetbrains.kotlin:kotlin-scripting-jvm-host:1.9.24")
+//    implementation("org.jetbrains.kotlin:kotlin-scripting-dependencies:1.9.24")
+    // Compiler nhúng (giúp compile code tại runtime)
+    //implementation(files("libs/kotlin-compiler-embeddable-1.7.20-RC.jar"))
+    //implementation(files("libs/kotlin-compiler-embeddable-1.9.24.jar"))
+    // Remove kotlin-scripting dependencies if they exist
+    // implementation("org.jetbrains.kotlin:kotlin-scripting-common")
+    // implementation("org.jetbrains.kotlin:kotlin-scripting-jvm")
+    // implementation("org.jetbrains.kotlin:kotlin-scripting-jvm-host")
 
     // Code editor component
     implementation(platform("io.github.Rosemoe.sora-editor:bom:0.23.5"))
     implementation("io.github.Rosemoe.sora-editor:editor")
     implementation("io.github.Rosemoe.sora-editor:language-textmate")
-
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
@@ -98,9 +115,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
 
     // Room for local storage
-    implementation("androidx.room:room-runtime:2.5.0")
-    implementation("androidx.room:room-ktx:2.5.0")
-    kapt("androidx.room:room-compiler:2.5.0")
+//    implementation("androidx.room:room-runtime:2.5.0")
+//    implementation("androidx.room:room-ktx:2.5.0")
+//    kapt("androidx.room:room-compiler:2.5.0")
 
     // Security Crypto
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
@@ -117,4 +134,6 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    implementation ("org.jetbrains.kotlin:kotlin-compiler-embeddable:1.7.20-RC")
 }
